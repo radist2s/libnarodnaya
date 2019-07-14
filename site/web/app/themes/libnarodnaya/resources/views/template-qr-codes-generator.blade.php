@@ -5,6 +5,12 @@
 <html lang="ru">
 <head>
     <style>
+        @media print {
+            div{
+                page-break-inside: avoid;
+            }
+        }
+
         .qr-codes {
             display: flex;
             flex-wrap: wrap;
