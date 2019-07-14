@@ -148,6 +148,7 @@ class User
         });
 
         $user_id = wp_insert_user([
+            'user_email' => $profile->email ?: '',
             'user_login' => static::create_username($profile, $provider),
             'user_pass'  => wp_generate_password(12),
             'first_name' => wp_kses($profile->firstName, []),
