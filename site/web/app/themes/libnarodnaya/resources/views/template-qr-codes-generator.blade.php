@@ -55,7 +55,6 @@
         }
     </style>
 </head>
-</html>
 <body>
 <div class="qr-codes">
     @foreach(\App\Controllers\TemplateQrCodesGenerator::generate_book_qr_codes(25, 1) as $book_url => $qr_code_data)
@@ -70,3 +69,4 @@
     @endforeach
 </div>
 </body>
+</html>
