@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3dd54414f99dd4cd8f04f4b256da9e67",
+    "content-hash": "c93cd4bd9ed8f2f2ee2ff2eb875c3a4d",
     "packages": [
         {
             "name": "composer/installers",
@@ -541,6 +541,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/cyrillic-slugs/"
+        },
+        {
+            "name": "wpackagist-plugin/updraftplus",
+            "version": "1.16.16",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/updraftplus/",
+                "reference": "tags/1.16.16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/updraftplus.1.16.16.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/updraftplus/"
         },
         {
             "name": "wpackagist-plugin/wp-ultimate-csv-importer",
