@@ -41,8 +41,8 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "wpackagist-plugin/cyrillic-slugs": "^2.0",
-    "wpackagist-plugin/wp-ultimate-csv-importer": "^5.6",
-    "wpackagist-plugin/updraftplus": "^1.16"
+    "wpackagist-plugin/updraftplus": "^1.16",
+    "wpackagist-plugin/wp-ultimate-csv-importer": "5.6.2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.4.2",
