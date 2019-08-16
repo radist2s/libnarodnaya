@@ -12,3 +12,8 @@ ansible-vault encrypt group_vars/production/vault.yml
 ```
 ansible-vault decrypt group_vars/production/vault.yml
 ```
+
+### Deploy
+```
+./bin/deploy.sh production lib.artnarodnaya.ru
+```

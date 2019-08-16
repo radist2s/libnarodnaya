@@ -90,6 +90,9 @@ add_filter('comments_template', function ($comments_template) {
     return $comments_template;
 }, 100);
 
+/**
+ * Redirects not privileged users back to front page
+ */
 add_action('after_setup_theme', function () {
     if (!\App\Includes\User::is_privileged()) {
         show_admin_bar(false);
