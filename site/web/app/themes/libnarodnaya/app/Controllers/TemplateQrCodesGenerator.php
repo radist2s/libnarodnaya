@@ -12,10 +12,11 @@ class TemplateQrCodesGenerator extends Controller
     /**
      * @param int $posts_per_page
      * @param int $paged
+     * @param int $offset
      * @return array
      * @throws \Exception
      */
-    public static function generate_book_qr_codes($posts_per_page = -1, $paged = 1) {
+    public static function generate_book_qr_codes($posts_per_page = -1, $paged = 1, $offset = 0) {
         $querier = new \WP_Query();
 
         $post_per_page_filtered = static::QR_CODES_PER_PAGE_LIMIT_MAX > 0 ?
@@ -25,7 +26,8 @@ class TemplateQrCodesGenerator extends Controller
         $books = $querier->query([
             'post_type'      => Types::BOOK,
             'posts_per_page' => $post_per_page_filtered,
-            'paged' => (int)$paged
+            'paged' => (int)$paged,
+            'offset' => (int)$offset
         ]);
 
         $qr_codes = [];

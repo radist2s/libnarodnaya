@@ -63,8 +63,9 @@
             ?: get_query_var('paged') // `/qr-gen/page/2`
             ?:  get_query_var('page') // `/qr-gen/2`
             ?: 1;
+        $qr_codes_offset = abs(filter_var($_GET['offset'] ?? 0, FILTER_VALIDATE_INT));
     @endphp
-    @foreach(\App\Controllers\TemplateQrCodesGenerator::generate_book_qr_codes($qr_codes_limit, $qr_codes_page) as $book_url => $qr_code_data)
+    @foreach(\App\Controllers\TemplateQrCodesGenerator::generate_book_qr_codes($qr_codes_limit, $qr_codes_page, $qr_codes_offset) as $book_url => $qr_code_data)
 
         <div class="book-qr-code">
             <div class="book-qr-code__image">
