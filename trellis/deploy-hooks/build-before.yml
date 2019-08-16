@@ -8,7 +8,7 @@
 #
 # ---
  - name: Install npm dependencies
-   command: yarn
+   command: yarn --ignore-engines
    delegate_to: localhost
    args:
      chdir: "{{ project_local_path }}/web/app/themes/libnarodnaya"
