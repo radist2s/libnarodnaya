@@ -23,12 +23,19 @@ class TemplateQrCodesGenerator extends Controller
             min(static::QR_CODES_PER_PAGE_LIMIT_MAX, (int)$posts_per_page) :
             (int)$posts_per_page;
 
-        $books = $querier->query([
+        $query_vars = [
             'post_type'      => Types::BOOK,
             'posts_per_page' => $post_per_page_filtered,
-            'paged' => (int)$paged,
-            'offset' => (int)$offset
-        ]);
+        ];
+
+        if ($offset) {
+            $query_vars['offset'] = (int)$offset;
+        }
+        else {
+            $query_vars['paged'] = (int)$paged;
+        }
+
+        $books = $querier->query($query_vars);
 
         $qr_codes = [];
 
