@@ -7,6 +7,8 @@ use Sober\Controller\Controller;
 
 class TemplateQrCodesGenerator extends Controller
 {
+    const QR_CODES_PER_PAGE_LIMIT_MAX = 50;
+
     /**
      * @param int $posts_per_page
      * @param int $paged
@@ -16,10 +18,14 @@ class TemplateQrCodesGenerator extends Controller
     public static function generate_book_qr_codes($posts_per_page = -1, $paged = 1) {
         $querier = new \WP_Query();
 
+        $post_per_page_filtered = static::QR_CODES_PER_PAGE_LIMIT_MAX > 0 ?
+            min(static::QR_CODES_PER_PAGE_LIMIT_MAX, (int)$posts_per_page) :
+            (int)$posts_per_page;
+
         $books = $querier->query([
             'post_type'      => Types::BOOK,
-            'posts_per_page' => $posts_per_page,
-            'paged' => $paged
+            'posts_per_page' => $post_per_page_filtered,
+            'paged' => (int)$paged
         ]);
 
         $qr_codes = [];

@@ -57,7 +57,14 @@
 </head>
 <body>
 <div class="qr-codes">
-    @foreach(\App\Controllers\TemplateQrCodesGenerator::generate_book_qr_codes(25, 1) as $book_url => $qr_code_data)
+    @php
+        $qr_codes_limit = filter_var($_GET['limit'] ?? 25, FILTER_VALIDATE_INT);
+        $qr_codes_page = filter_var($_GET['page'] ?? null, FILTER_VALIDATE_INT) // `/qr-gen/?page=2`, btw, you will be redirected to `/qr-gen/2`
+            ?: get_query_var('paged') // `/qr-gen/page/2`
+            ?:  get_query_var('page') // `/qr-gen/2`
+            ?: 1;
+    @endphp
+    @foreach(\App\Controllers\TemplateQrCodesGenerator::generate_book_qr_codes($qr_codes_limit, $qr_codes_page) as $book_url => $qr_code_data)
 
         <div class="book-qr-code">
             <div class="book-qr-code__image">
