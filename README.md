@@ -20,3 +20,6 @@ nvm use lts/dubnium
 
 ./bin/deploy.sh production lib.artnarodnaya.ru
 ```
+
+# GIT LFS
+Make sure [`git lfs`](https://git-lfs.github.com/) to be installed.
